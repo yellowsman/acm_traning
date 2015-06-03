@@ -37,7 +37,7 @@ public class F_2014 {
             
             for(int i=0;i<q;i++){
                 for(int j=head;j<limit.length;j++){
-                    strManip
+                    strManip+="";
                     count[j]++;
                     if(limit[j] <= count[j]){
                         head++;
