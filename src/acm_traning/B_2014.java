@@ -32,14 +32,13 @@ public class B_2014 {
      
      ここまで来たら、--S--に戻る
      消すブロックが無くなったら合計値を出力して終わり
-          
         
     　
      */
 
     public static void main(String[] args) throws FileNotFoundException {
         Scanner scan = new Scanner(System.in);
-        scan = new Scanner(new File("C:\\Users\\省吾\\Documents\\NetBeansProjects\\acm_traning\\btest.txt"));
+        scan = new Scanner(new File("C:\\Users\\g15002se\\Documents\\NetBeansProjects\\acm_traning\\src\\acm_traning\\testdata"));
 
         while (true) {
 
@@ -170,9 +169,6 @@ public class B_2014 {
     StringBuffer plug(StringBuffer sb, int h) {
         // ここで文字列を横向き(縦の情報を横に表示する)に変換
         // つまり、90度右方向に傾ける
-        // 
-
-        
         
         
         int[] data = new int[h];
