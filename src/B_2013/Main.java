@@ -16,14 +16,10 @@ import java.util.Scanner;
  */
 public class Main {
 
+    // memo:最後の出力に、同順を管理する必要がある
+    // 現在のデータ構造だと、同順を管理することができないため、新しいデータ構造を考える必要がある(ランク要素を追加しても良いけど、管理が非常に煩雑になる)
     public static void main(String[] args) {
-        int[] aaa = new int[6];
-        for (int i = 1; i < aaa.length; i++) {
-            aaa[i] = (int) (Math.random() * 10);
-        }
-
-        Arrays.sort(aaa);
-        System.out.println();
+        b();
 
     }
 
@@ -63,33 +59,45 @@ public class Main {
                     insert(score, i, j + 1);
 
                 } else if (score[j][1] > s) { // より小さい
-                    insert(score,i,j-1);
+                    insert(score, i, j - 1);
 
                 } else { // 同値
-                    if(score[j][2] < t){ // 右に挿入
-                        insert(score,i,j+1);
-                    }else{ // 左に挿入
-                        insert(score,i,j-1);
+                    if (score[j][2] < t) { // 右に挿入
+                        insert(score, i, j + 1);
+                    } else { // 左に挿入
+                        insert(score, i, j - 1);
                     }
 
                 }
 
             }
         }
-        
-        for(int i=0;i<score.length;i++){
-            int rank = 1;
-            
-        }
-        
-        for(int[] r:score){
-            
+
+
+        // 出力
+        // 前の値と同値 = 同順位ならば"="を出力、そうでないなら","を出力
+        int pre1 = 0;
+        int pre2 = 0;
+        System.out.print(score[0][0]);
+        pre1 = score[0][1];
+        pre2 = score[0][2];
+        for (int i = 1; i < score.length; i++) {
+            int[] r = score[i];
+            if (r[1] == pre1 && r[2] == pre2) {
+                System.out.print("=");
+            } else if (r[2] != pre2) {
+                System.out.print(",");
+            }
+            System.out.println(r[0]);
+
+            pre1 = r[1];
+            pre2 = r[2];
         }
 
     }
 
     // positionの位置にinsの要素を挿入、それより後ろの要素を動かす
-    static void  insert(int[][] arr, int ins, int position) {
+    static void insert(int[][] arr, int ins, int position) {
         int[] insert = arr[ins];
 
         for (int i = ins; i > position; i--) {
