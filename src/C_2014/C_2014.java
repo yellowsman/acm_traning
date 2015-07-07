@@ -110,7 +110,7 @@ public class C_2014 {
         return -1.0;
     }
 
-    // 最初から昇順で値が渡される
+    // 最初から昇順で値が渡されるので不要
     public static int[][] sort(int[][] target) {
         int[] tmp = new int[3];
 
